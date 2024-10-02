@@ -37,5 +37,16 @@ print("Hello, I am {name} and I'm also {age} years old.".format(**user))
 
 # altra notazione per fare la stessa cosa con f-strings
 print(f"Hello, I am {user['name']} and I'm also {user['age']} years old.")
-user = { "name": "Antonio", "age": 33 }
 
+# operazioni aritmetiche
+print(f"{55*3}")
+
+#ciclo for in range
+print(f"{[5**item for item in range(1, 10)]}") #[5, 25, 125, 625, 3125, 15625, 78125, 390625, 1953125]
+
+#float limitato a 3 decimali dopo la virgola
+print(format(322123.34123, ".3f"))
+
+#formatting con f method
+cool_variable="centered cool variable"
+print(f"{cool_variable:=^30}")
