@@ -8,6 +8,11 @@ last_name="Sala"
 age= 27
 list=['carlo', 'giacomo', 'luca']
 
+dizionario= {
+    'name': 'antonio',
+    'cognome': 'rossi'
+}
+
 # ---------------------------
 # old style string formatting 
 # ---------------------------
