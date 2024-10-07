@@ -8,8 +8,8 @@
 
 # 5-10. Checking Usernames: Do the following to create a program that simulates how websites ensure that everyone has a unique username .
 
-# username_list = ['giovanni', 'maria', 'luigi', 'anna', 'francesca', 'admin']
 username_list = []
+# username_list = ['giovanni', 'maria', 'luigi', 'anna', 'francesca', 'admin']
 
 if username_list != []:
     for user in username_list:

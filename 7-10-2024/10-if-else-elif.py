@@ -28,14 +28,14 @@ age = 88
 if age <= 5:
     price = 5
     print('Sei molto giovane')
-    print('Il biglietto costerà ' + str(price) + "€.") 
+    print(f'Il biglietto costerà {price}€.') 
 elif age < 18:
     price = 10
     print("Ormai sei adolescente quindi il biglietto costerà " + str(price) + "€.")
 elif age > 80:
     price = 5
     print('Condizione scontata per gli over 80')
-    print('Il biglietto costerà ' + str(price) + "€.") 
+    print(f'Il biglietto costerà {price} €.') 
 else: 
     price = 15
     print('Ormai sei adulto quindi il biglietto costerà ' + str(price) + '€.')
