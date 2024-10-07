@@ -1,7 +1,7 @@
 dimensions=(150,40)
 # print(dimensions)
 
-#dimensions[0]= 200 #errore voluto // non si può riassegnaer un valore ad una tupla così facilmente
+#dimensions[0]= 200 #errore voluto // non si può riassegnare un valore ad una tupla così facilmente
 
 print("original dimensions:")
 for dimens in dimensions:
