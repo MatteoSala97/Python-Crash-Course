@@ -1,6 +1,4 @@
 import datetime
-now = datetime.datetime.now()
-
 class Cat():
     def __init__(self, name, age, breed):
         self.name = name
@@ -8,9 +6,11 @@ class Cat():
         self.breed = breed
         
     def meow(self):
-        print(f"{self.name.title()} is now meowing.")
+        print(f"{self.name.title()} is {self.breed.title()} and it's now meowing.")
         
     def grooming(self):
+        now = datetime.datetime.now()
+        
         groom_day = now.strftime('%A')
         groom_time = now.strftime('%H:%M')
         print(f"{self.name.title()} is a {self.breed.title()} and it's cleaning its paws on {groom_day} at {groom_time}")
