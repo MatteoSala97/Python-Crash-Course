@@ -1,7 +1,7 @@
 # input = input("Enter your name:")
 # print(f"Hello {input}, how are you today?")
 
-prompt = "Do you like programming? I really hope you like it because you embarked on a very very very looooooooooooooong journey: "
+prompt = "Do you like programming? I really hope you like it because you embarked on a very very very looooooooooooooong journey: " 
 prompt += "\n(yes/no)"
 
 question = input(prompt)
@@ -33,3 +33,4 @@ if int(number_input) % 10:
     print("The number is not a multiple of 10.")
 else:
     print("The number is a multiple of 10.")
+    

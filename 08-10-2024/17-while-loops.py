@@ -14,23 +14,23 @@ def stai_fermo_lì_non_runnare():
 
     while active:
         message = input(prompt)
-        if message. lower() == 'quit': 
+        if message.lower() == 'quit': 
             active = False
             print(message2)
         else: 
             print(message)
             
     prompt = "\nEnter your toppings (type 'done' when you're done): "
-    toppings = []
+    list_toppings = []
 
     while True: 
         topping = input(prompt).lower()
         if topping != 'done':
-            toppings.append(topping)
+            list_toppings.append(topping)
         else: 
             break
         
-    print("You have chosen the following toppings:", toppings)
+    print("You have chosen the following toppings:", list_toppings)
                 
 
     # Verify each user until there are no more unconfirmed users. 
@@ -59,7 +59,7 @@ while active_polling:
     responses[name] = res
     
     repeat = input("Would you like to let another person respond? (yes/ no) ")
-    if repeat == 'no': 
+    if repeat.lower() == 'no': 
         active_polling = False
         
 print("\n--- Poll Results ---")

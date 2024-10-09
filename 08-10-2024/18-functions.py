@@ -8,7 +8,7 @@ def greet(username):
 # - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~
  
 def fav_book(book):
-    question = print("Whats your fav book? ")
+    print("Whats your fav book? ")
     print(f"Oh I love {book.title()}")
 
 # fav_book("Eragon")
@@ -30,7 +30,7 @@ def formatted_name(first_name, last_name, middle_name = ''):
     else:
         full_name = first_name + ' ' + last_name
     return full_name.title()
-    return person
+    return f"{first_name} {middle_name} {last_name}" if middle_name else f"{first_name} {last_name}"
 
 # user = formatted_name('matteo', 'sala')
 # print(user)
