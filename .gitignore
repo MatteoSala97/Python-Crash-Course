@@ -1,0 +1,20 @@
+# Ignora la cartella 
+.vscode/
+
+# Ignora file di log
+*.log
+
+# Ignora file temporanei
+*.tmp
+
+# Ignora directory di cache
+__pycache__/
+*.pyc
+
+# Ignora file di configurazione
+config.json
+
+# Ignora directory di dipendenze
+node_modules/
+venv/
+
