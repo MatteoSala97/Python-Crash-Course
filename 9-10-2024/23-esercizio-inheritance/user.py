@@ -11,6 +11,6 @@ class User():
         
 
 user1 = User('matteo', 'sala')
-user1.describe_user()
-user1.greet()
+# user1.describe_user()
+# user1.greet()
 
