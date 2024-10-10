@@ -8,12 +8,21 @@ def check_keydown_events(event, spaceship):
         spaceship.moving_right = True
     elif event.key == pygame.K_LEFT:
         spaceship.moving_left = True
+    elif event.key == pygame.K_UP:
+        spaceship.moving_up = True
+    elif event.key == pygame.K_DOWN:
+        spaceship.moving_down = True
+    
 
 def check_keyup_events(event, spaceship):
     if event.key == pygame.K_RIGHT:
         spaceship.moving_right = False
     elif event.key == pygame.K_LEFT:
         spaceship.moving_left = False
+    elif event.key == pygame.K_UP:
+        spaceship.moving_up = False
+    elif event.key == pygame.K_DOWN:
+        spaceship.moving_down = False
 
 
 
