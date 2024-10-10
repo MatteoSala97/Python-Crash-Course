@@ -16,7 +16,7 @@ def run_game():
     )
     
     #spawns the entity
-    spaceship = Spaceship(screen)
+    spaceship = Spaceship(ai_settings, screen)
     alien = Alien(screen)
 
    # starts the main loop for the game. 
@@ -24,8 +24,8 @@ def run_game():
         
         #runs game functions 
         gf.check_events(spaceship)
+        gf.update_screen(screen, ai_settings, spaceship, alien)
         spaceship.update()
-        gf.update_screen(ai_settings, screen, spaceship, alien)
         
         #makes the most recent drawn screen visible
         pygame.display.flip()
