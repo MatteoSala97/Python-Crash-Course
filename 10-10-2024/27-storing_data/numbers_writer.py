@@ -21,13 +21,25 @@ def save_number():
     
 # Reads number
 def get_favourite_number():
-    with open(filename, 'r') as file_obj:
-        saved_number = json.load(file_obj)
-        print(f"I know your favourite number. It's {saved_number}!")
+    while True: 
+        try:
+            with open(filename, 'r') as file_obj:
+                saved_number = json.load(file_obj)
+                print(f"I know your favourite number. It's {saved_number}!")
+        except ValueError:
+            print('The file seems to be empty or badly edited...')
+            
+            try:
+                with open(filename, 'r') as file_obj:
+                    raw_content = file_obj.read()
+                    print(f"Raw content of the file: '{raw_content}'")
+            except Exception as e:
+                print(f"An error occurred while reading the file: {e}")
+        break
+            
 
 # Checks if the file exists: if "yes" reads it. otherwise it saves the input
 if os.path.exists(filename):
-    print("Your number alredy exists")
     get_favourite_number()
 else:
     save_number()
