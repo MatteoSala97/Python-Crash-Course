@@ -1,6 +1,22 @@
 import sys
 import pygame
 
+
+# listener on keydown events 
+def check_keydown_events(event, spaceship):
+    if event.key == pygame.K_RIGHT:
+        spaceship.moving_right = True
+    elif event.key == pygame.K_LEFT:
+        spaceship.moving_left = True
+
+def check_keyup_events(event, spaceship):
+    if event.key == pygame.K_RIGHT:
+        spaceship.moving_right = False
+    elif event.key == pygame.K_LEFT:
+        spaceship.moving_left = False
+
+
+
 # Runs the event checker (listens to mouse and keyboard inputs)
 def check_events(spaceship):
     for event in pygame.event.get():
@@ -8,16 +24,12 @@ def check_events(spaceship):
             sys.exit()
         # moves the spaceship to the right
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RIGHT:
-                spaceship.moving_right = True
-            elif event.key == pygame.K_LEFT:
-                spaceship.moving_left = True
+            check_keydown_events(event, spaceship)
+                
         # moves the spaceship to the left     
         elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_RIGHT:
-                spaceship.moving_right = False
-            elif event.key == pygame.K_LEFT:
-                spaceship.moving_left = False
+            check_keyup_events(event, spaceship)
+                
                 
 # Updates images on the screen and flip to the new screen
 def update_screen(ai_settings, screen, spaceship, alien):
