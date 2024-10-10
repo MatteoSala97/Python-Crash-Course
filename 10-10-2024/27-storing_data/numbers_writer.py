@@ -5,7 +5,13 @@ filename = r'C:\Users\matteo.sala\Documents\Python Crash Course\10-10-2024\27-st
 
 
 def save_number():
-    favourite_number = input("Whats your favourite number? ")
+    while True:
+        favourite_number = input("Whats your favourite number? ")
+        try: 
+            favourite_number = int(favourite_number)
+            break
+        except ValueError: 
+            print("That's not a valid number. Please enter a valid number.")
     with open(filename, 'w') as file_obj: 
         json.dump(favourite_number, file_obj)
     print('Number saved in a safe place.')
