@@ -4,6 +4,7 @@ import game_functions as gf
 from settings import Settings
 from spaceship import Spaceship
 from alien_1 import Alien
+from pygame.sprite import Group
 
 def run_game():
     
@@ -15,17 +16,19 @@ def run_game():
         (ai_settings.screen_width, ai_settings.screen_height)
     )
     
-    #spawns the entity
+    #spawns the entities
     spaceship = Spaceship(ai_settings, screen)
     alien = Alien(screen)
-
+    bullets = Group()
+    
    # starts the main loop for the game. 
     while True:
         
         #runs game functions 
-        gf.check_events(spaceship)
+        gf.check_events(spaceship, bullets, ai_settings, screen)
         spaceship.update()
-        gf.update_screen(ai_settings, screen, spaceship, alien)
+        bullets.update()
+        gf.update_screen(ai_settings, screen, spaceship, alien, bullets)
         
         #makes the most recent drawn screen visible
         pygame.display.flip()
