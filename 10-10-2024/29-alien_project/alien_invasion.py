@@ -23,7 +23,8 @@ def run_game():
     while True:
         
         #runs game functions 
-        gf.check_events()
+        gf.check_events(spaceship)
+        spaceship.update()
         gf.update_screen(ai_settings, screen, spaceship, alien)
         
         #makes the most recent drawn screen visible
