@@ -24,8 +24,8 @@ def run_game():
         
         #runs game functions 
         gf.check_events(spaceship)
-        gf.update_screen(screen, ai_settings, spaceship, alien)
         spaceship.update()
+        gf.update_screen(ai_settings, screen, spaceship, alien)
         
         #makes the most recent drawn screen visible
         pygame.display.flip()

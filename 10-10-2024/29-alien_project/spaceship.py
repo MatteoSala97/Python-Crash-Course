@@ -1,7 +1,7 @@
 import pygame
 
 class Spaceship():
-    def __init__(self, screen, ai_settings):
+    def __init__(self, ai_settings, screen):
         self.screen = screen
         self.ai_settings = ai_settings
         self.image = pygame.image.load(r'C:\Users\matteo.sala\Documents\Python Crash Course\10-10-2024\29-alien_project\images\spaceship.png')
@@ -25,10 +25,14 @@ class Spaceship():
         self.moving_left = False
     
     def update(self):
+        # Updates the ship's center value, not the rect. 
         if self.moving_right:
-            self.center += self.ai_settings.ship_speed_factor
+            self.center += self.ai_settings.spaceship_speed_factor
         if self.moving_left:
-            self.center -= self.ai_settings.ship_speed_factor
+            self.center -= self.ai_settings.spaceship_speed_factor
+            
+          # Update rect object from self.center 
+        self.rect.centerx = self.center
         
     def blitme(self):
         self.screen.blit(self.image, self.rect)
