@@ -36,11 +36,27 @@ def get_favourite_number():
             except Exception as e:
                 print(f"An error occurred while reading the file: {e}")
         break
+    
+def get_favourite_number2():
+    while True:
+        file_obj = open(filename, 'r')
+        try:
+            raw_content = file_obj.read()
+            saved_number = json.load(file_obj)
+            print(f"I know your favourite number. It's {saved_number}!")
+
+        except ValueError:
+            print('The file seems to be empty or badly edited...')
+            print(f"Raw content of the file: '{raw_content}'")
+        except Exception as e:
+            print(f"An error occurred while reading the file: {e}")
+        file_obj.close()
+        break
             
 
 # Checks if the file exists: if "yes" reads it. otherwise it saves the input
 if os.path.exists(filename):
-    get_favourite_number()
+    get_favourite_number2()
 else:
     save_number()
 
