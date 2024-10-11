@@ -27,7 +27,8 @@ def run_game():
         #runs game functions 
         gf.check_events(spaceship, bullets, ai_settings, screen)
         spaceship.update()
-        bullets.update()
+        gf.update_bullets(bullets) 
+        
         gf.update_screen(ai_settings, screen, spaceship, alien, bullets)
         
         #makes the most recent drawn screen visible

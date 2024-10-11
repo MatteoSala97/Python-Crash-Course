@@ -27,7 +27,14 @@ def check_keyup_events(event, spaceship):
     elif event.key == pygame.K_DOWN:
         spaceship.moving_down = False
 
-
+# bullet function
+def update_bullets(bullets):
+    #deleting out-of-bounds bullets
+    for bullet in bullets.copy():
+        if bullet.rect.bottom <= 0:
+            bullets.remove(bullet)    
+        # print(len(bullets))    
+    bullets.update()
 
 # Runs the event checker (listens to mouse and keyboard inputs)
 def check_events(spaceship, bullets, ai_settings, screen):
@@ -37,9 +44,10 @@ def check_events(spaceship, bullets, ai_settings, screen):
         # moves the spaceship to the right
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
-                new_bullet = Bullet(ai_settings, screen, spaceship)
-                bullets.add(new_bullet)
-                
+                if len(bullets) < ai_settings.bullets_allowed:
+                    new_bullet = Bullet(ai_settings, screen, spaceship)
+                    bullets.add(new_bullet)
+                 
             check_keydown_events(event, spaceship)
             
         # moves the spaceship to the left     
