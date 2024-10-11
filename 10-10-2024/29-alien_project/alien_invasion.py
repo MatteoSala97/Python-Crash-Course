@@ -3,7 +3,7 @@ import game_functions as gf
 
 from settings import Settings
 from spaceship import Spaceship
-from alien_1 import Alien
+from alien import Alien
 from pygame.sprite import Group
 
 def run_game():
@@ -18,8 +18,10 @@ def run_game():
     
     #spawns the entities
     spaceship = Spaceship(ai_settings, screen)
-    alien = Alien(screen)
+    alien = Group()
     bullets = Group()
+    
+    gf.create_fleet(ai_settings, screen, alien)
     
    # starts the main loop for the game. 
     while True:
@@ -30,8 +32,5 @@ def run_game():
         gf.update_bullets(bullets) 
         
         gf.update_screen(ai_settings, screen, spaceship, alien, bullets)
-        
-        #makes the most recent drawn screen visible
-        pygame.display.flip()
         
 run_game()

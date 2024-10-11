@@ -2,6 +2,7 @@ import sys
 import pygame
 
 from bullet import Bullet 
+from alien import Alien
 
 
 
@@ -36,6 +37,29 @@ def update_bullets(bullets):
         # print(len(bullets))    
     bullets.update()
 
+def get_number_aliens_x(ai_settings, alien_width): 
+    available_space_x = ai_settings.screen_width - 2 * alien_width 
+    number_aliens_x = int(available_space_x / (2 * alien_width)) 
+    return number_aliens_x
+
+# Create an alien and find the number of aliens in a row. 
+def create_fleet(ai_settings, screen, alien):
+    alien = Alien(ai_settings, screen)
+    number_aliens_x = get_number_aliens_x(ai_settings, alien.rect.width)
+    
+    # Crea la prima fila di alieni
+    for alien_number in range(number_aliens_x):
+        create_alien(ai_settings, screen, alien, alien_number)
+ 
+ 
+def create_alien(ai_settings, screen, alien, alien_number):
+   alien = Alien(ai_settings, screen)
+   alien_width = alien.rect.width
+   alien.x = alien_width + 2 * alien_width * alien_number
+   alien.rect.x = alien.x 
+   alien.add(alien)
+       
+       
 # Runs the event checker (listens to mouse and keyboard inputs)
 def check_events(spaceship, bullets, ai_settings, screen):
     for event in pygame.event.get():
@@ -65,7 +89,10 @@ def update_screen(ai_settings, screen, spaceship, alien, bullets):
     spaceship.blitme()
     
     #spawns the alien
-    alien.blitme()
+    alien.draw(screen)
+    
+    #makes the most recent drawn screen visible
+    pygame.display.flip()
     
     # Draws bullets
     for bullet in bullets.sprites():

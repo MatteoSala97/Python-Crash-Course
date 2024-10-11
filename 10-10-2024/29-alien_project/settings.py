@@ -1,5 +1,5 @@
 class Settings():
-    # initializes the game's settins
+    # initializes the game's settings
     def __init__(self):
         
         # screen settings
