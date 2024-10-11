@@ -1,6 +1,7 @@
 import pygame
+from pygame.sprite import Sprite
 
-class Alien(pygame.sprite.Sprite):  
+class Alien(Sprite):  
     def __init__(self, ai_settings, screen):
         super().__init__()  
         self.screen = screen
@@ -17,7 +18,7 @@ class Alien(pygame.sprite.Sprite):
 
         # Sets the initial position in the center
         self.rect.centerx = self.screen_rect.centerx
-        self.rect.centery = self.screen_rect.centery
+        self.rect.top = self.screen_rect.top
 
     def blitme(self):
         # Spawns the alien(s)

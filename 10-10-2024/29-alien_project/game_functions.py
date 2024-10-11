@@ -36,29 +36,33 @@ def update_bullets(bullets):
             bullets.remove(bullet)    
         # print(len(bullets))    
     bullets.update()
-
+       
+       
+       
 def get_number_aliens_x(ai_settings, alien_width): 
     available_space_x = ai_settings.screen_width - 2 * alien_width 
     number_aliens_x = int(available_space_x / (2 * alien_width)) 
     return number_aliens_x
 
+
+
+def create_alien(ai_settings, screen, aliens, alien_number):
+    alien = Alien(ai_settings, screen)
+    alien_width = alien.rect.width
+    alien.x = alien_width + 2 * alien_width * alien_number
+    alien.rect.x = alien.x 
+    aliens.add(alien)
+
 # Create an alien and find the number of aliens in a row. 
-def create_fleet(ai_settings, screen, alien):
+def create_fleet(ai_settings, screen, aliens):
     alien = Alien(ai_settings, screen)
     number_aliens_x = get_number_aliens_x(ai_settings, alien.rect.width)
     
     # Crea la prima fila di alieni
     for alien_number in range(number_aliens_x):
-        create_alien(ai_settings, screen, alien, alien_number)
+        create_alien(ai_settings, screen, aliens, alien_number)
  
  
-def create_alien(ai_settings, screen, alien, alien_number):
-   alien = Alien(ai_settings, screen)
-   alien_width = alien.rect.width
-   alien.x = alien_width + 2 * alien_width * alien_number
-   alien.rect.x = alien.x 
-   alien.add(alien)
-       
        
 # Runs the event checker (listens to mouse and keyboard inputs)
 def check_events(spaceship, bullets, ai_settings, screen):
@@ -78,6 +82,7 @@ def check_events(spaceship, bullets, ai_settings, screen):
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, spaceship)
                 
+    
                 
 # Updates images on the screen and flip to the new screen
 def update_screen(ai_settings, screen, spaceship, alien, bullets):
