@@ -3,8 +3,7 @@ import pygame
 
 from bullet import Bullet 
 from alien import Alien
-
-
+from stars import Stars
 
 # listener on keydown events 
 def check_keydown_events(event, spaceship):
@@ -28,6 +27,7 @@ def check_keyup_events(event, spaceship):
     elif event.key == pygame.K_DOWN:
         spaceship.moving_down = False
 
+
 # bullet function
 def update_bullets(bullets):
     #deleting out-of-bounds bullets
@@ -37,12 +37,12 @@ def update_bullets(bullets):
         # print(len(bullets))    
     bullets.update()
        
-       
-       
+    
 def get_number_aliens_x(ai_settings, alien_width): 
     available_space_x = ai_settings.screen_width - 2 * alien_width 
     number_aliens_x = int(available_space_x / (2 * alien_width)) 
     return number_aliens_x
+
 
 def get_number_rows(ai_settings, spaceship_height, alien_height):
     available_space_y = (ai_settings.screen_height - (3 * alien_height) - spaceship_height)
@@ -58,6 +58,7 @@ def create_alien(ai_settings, screen, aliens, alien_number, row_number):
     alien.rect.y = alien.rect.height + 2 * alien.rect.height * row_number
     aliens.add(alien)
 
+
 # Create an alien and find the number of aliens in a row. 
 def create_fleet(ai_settings, screen, spaceship, aliens):
     alien = Alien(ai_settings, screen)
@@ -68,6 +69,14 @@ def create_fleet(ai_settings, screen, spaceship, aliens):
     for row_number in range(number_rows):
         for alien_number in range(number_aliens_x):
             create_alien(ai_settings, screen, aliens, alien_number, row_number)
+            
+            
+            #random star patterns
+# def create_random_star_position_array(numero):
+#     a = []
+#     for i in range(numero):
+        
+    
  
  
        
@@ -92,12 +101,15 @@ def check_events(spaceship, bullets, ai_settings, screen):
     
                 
 # Updates images on the screen and flip to the new screen
-def update_screen(ai_settings, screen, spaceship, alien, bullets):
+def update_screen(ai_settings, screen, spaceship, alien, bullets, stars):
     #fills the screen every pass through the loop
     screen.fill(ai_settings.bg_color)
     
     # spawns the ship
     spaceship.blitme()
+    
+    #spawns the stars
+    stars.blitme()
     
     #spawns the alien
     alien.draw(screen)
@@ -110,6 +122,3 @@ def update_screen(ai_settings, screen, spaceship, alien, bullets):
     pygame.display.flip()
     
     
-
-
-            
